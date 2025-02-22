@@ -4,6 +4,7 @@ Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/spf13/cobra"
@@ -26,6 +27,8 @@ var addCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		task, _ := cmd.Flags().GetString("task")
 		cat, _ := cmd.Flags().GetString("cat")
+		fist := Task{1, task, cat, time.Now(), false}
+		fmt.Println(fist)
 
 	},
 }
@@ -42,6 +45,6 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	addCmd.Flags().StringP("Task", "t", "", "Provide the task ")
+	addCmd.Flags().StringP("task", "t", "", "Provide the task ")
 	addCmd.Flags().StringP("cat", "c", "", "Provide the cattogry ")
 }
