@@ -1,5 +1,5 @@
 /*
-Copyright © 2025 Prince Kumar 
+Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 */
 package cmd
 
@@ -15,6 +15,7 @@ import (
 
 // make a slice to add these tasks to
 type Task struct {
+	Id     int16     `json:"id"`
 	Task   string    `json:"task"`
 	Cat    string    `json :"cat"`
 	Time   time.Time `json:"time"`
@@ -95,7 +96,7 @@ var addCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		task, _ := cmd.Flags().GetString("task")
 		cat, _ := cmd.Flags().GetString("cat")
-		first := Task{task, cat, time.Now(), false}
+		first := Task{2, task, cat, time.Now(), false}
 		//json_data, err := json.Marshal(first)
 		//if err != nil {
 		//	fmt.Println("\033[31;1m Some error occured")
